@@ -125,7 +125,36 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  color: #222;
+  transition: transform 5s;
+    -webkit-transition: transform 5s;
+}
+
+body:hover {
+    transform:rotate(360deg);
+}
+
+/*  Was trying to create a Glitter/Glow effect VVVVVVVVV, but no success... :'{ */
+
+
+.text-glow {
+   font-size:1.2em;
+   color: midnightblue;
+   font-family:Arial;
+   }
+
+.text-glow:hover {
+text-shadow: 1px 0px 8px #ffd200;
+-webkit-transition: 1s linear 4s;
+-moz-transition: 1s linear 4s;
+-o-transition: 1s linear 4s;
+transition: 1s linear 4s;
+outline: 0 none;
+   }
+
+/*  Was trying to create a Glitter/Glow effect ^^^^^^^^^, but no success... :'{ */
+
+
 header nav {
   text-align: right;
   margin-top: 2em;
@@ -217,7 +246,7 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
-  padding: 0 30px;
+  padding: 0px 30px;
   color: #fff;
   text-align: center;
   font-size: 1em;
@@ -587,7 +616,7 @@ img {
   text-align: left;
 }
 .pricebox section ul li {
-  font-size: 1.2em;
+  font-size: 0.9em;
   margin-bottom: 1.2em;
 }
 
