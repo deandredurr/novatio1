@@ -545,8 +545,8 @@ img {
   text-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 .pricing p {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  color: #e0b5b5;
+  text-shadow: 0 1px 2px rgba(161, 139, 139, 0.37);
   font-size: 1.2em;
 }
 .pricebox {
