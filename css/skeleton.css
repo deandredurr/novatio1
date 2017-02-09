@@ -512,6 +512,8 @@ there.
   .logo {
 
     margin-top: -50px;
+
+
   }
 
   /* benefits
@@ -706,29 +708,4 @@ footer p {
   text-transform: uppercase;
   font-size: 0.7em;
   margin-top: 0.5em;
-}
-/* Survey
-    -------------------*/
-.survey placement {
-    background:#009be8;
-    text-align: center;
-    padding: 4em;
-}
-.survey h1 {
-    color: #4d4d4d;
-    font-size: 1.4em;
-    text-transform:uppercase;
-    margin: 0;
-    font-weight: 600;
-    text-align: center ;
-}
-.survey section button {
-    background: #2ecc71;
-    position: absolute;
-    bottom: 1em;
-    width: 90%;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: center;
 }
