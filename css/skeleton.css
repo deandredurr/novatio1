@@ -126,12 +126,15 @@ body {
   font-weight: 400;
   font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222;
-  transition: transform 3s;
-    -webkit-transition: transform 3s;
+ /* Was trying to get a rotating effect, but created unstable web interaction...
+      transition: transform 3s;
+    -webkit-transition: transform 3s; */
 }
 
-body:hover {
-    transform:rotate(360deg);
+/* Was trying to get a rotating effect, but created unstable web interaction...
+    
+    body:hover {
+    transform:rotate(360deg); */
 }
 
 /*  Was trying to create a Glitter/Glow effect VVVVVVVVV, but no success... :'{ */
