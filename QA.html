@@ -132,6 +132,7 @@
         } 
         */  
 
+        //use to check to see if the user has selected a answer.
         function check(a, x) {
             var ele = document.getElementsByName(a);
             var flag = 0;
@@ -146,7 +147,7 @@
                 document.getElementById(x).disabled = true;
         }
 
-
+        //set to see if more than one result is checked. 
         function checkMul(a,b,c,d, x) {
             var eleA = document.getElementsByName(a);
             var eleB = document.getElementsByName(b);
@@ -305,29 +306,28 @@
             mulH = document.querySelector('input[name="Qmul8"]:checked').value;
             document.getElementById('placement').innerHTML = ("If you have any comments please feel free to add below." +
                 "<br><input type='text' id='dataIn' value='' /><br>"+
-                "Name: <input type='text' id='Name' value='' />" +
-                "<button type='button' id='end' onclick='toEnd()'  >Submit</button>");
+                "Name: <input type='text' id='Name' value='' /><br><br>" +
+                "<button type='button' id='end' onclick='toEnd(); return false'>Submit</button>");
         }
 
         function toEnd() {
-            input = document.getElementById('dataIn');
-            userName = document.getElementById('Name');
+            input = document.getElementById('dataIn').value;
+            userName = document.getElementById('Name').value;
             document.getElementById('placement').innerHTML = ("Thank you for your time.");
             //input email all info
-            var link = "mailTo:S01160644@acad.tri-c.edu" +
-            "&subject=" + escape("This is my subject") +
-            "&body=" + escape(userName + "'s Customer Review: <br>" + work + "<br>" +
-            budget + "<br>" +
-            mulA + "<br>" +
-            mulB + "<br>" +
-            mulC + "<br>" +
-            mulD + "<br>" +
-            mulE + "<br>" +
-            mulF + "<br>" +
-            mulG + "<br>" +
-            mulH + "<br>" +
-            input + "<br>" +
-            userName)
+            var link = 'mailTo:S01160644@acad.tri-c.edu' +
+                '?subject=' + escape('This is my subject') +
+                '&body=' + escape(userName + "'s Customer Review: <br>" + work + "<br>" +
+                budget + "<br>" +
+                mulA + "<br>" +
+                mulB + "<br>" +
+                mulC + "<br>" +
+                mulD + "<br>" +
+                mulE + "<br>" +
+                mulF + "<br>" +
+                mulG + "<br>" +
+                mulH + "<br>" +
+                "Additional Input: " + input + "<br>")
             ;
 
             window.location.href = link;
@@ -336,26 +336,28 @@
 
     </script>
 </head>
-<body style="background-color:aquamarine">
-    <h1>NOVATIO</h1>
+<body>
+    <section class="survey">
+        <h1>NOVATIO</h1>
 
-    <div id="placement" style="background-color:azure">
-        First Question:<br />What renovation project did you choose from Novatio?
-        <br />
-        <form>
-            <input type='checkbox' name='project[]' value='Kitchen Work' onclick="check('project[]', 'b1')" />Kitchen<br />
-            <input type='checkbox' name='project[]' value='Bathroom Work' onclick="check('project[]', 'b1')" />Bathroom<br />
-            <input type='checkbox' name='project[]' value='Bedroom Work' onclick="check('project[]', 'b1')" />Bedroom<br />
-            <input type='checkbox' name='project[]' value='Garage Work' onclick="check('project[]', 'b1')" />Garage<br />
-            <input type='checkbox' name='project[]' value='Living Room Work' onclick="check('project[]', 'b1')" />Living Room<br />
-            <input type='checkbox' name='project[]' value='Other Work: ' onclick="check('project[]', 'b1')" />Other<br />
+        <div id="placement">
+            First Question:<br />What renovation project did you choose from Novatio?
+            <br />
+            <form>
+                <input type='checkbox' name='project[]' value='Kitchen Work' onclick="check('project[]', 'b1')" />Kitchen<br />
+                <input type='checkbox' name='project[]' value='Bathroom Work' onclick="check('project[]', 'b1')" />Bathroom<br />
+                <input type='checkbox' name='project[]' value='Bedroom Work' onclick="check('project[]', 'b1')" />Bedroom<br />
+                <input type='checkbox' name='project[]' value='Garage Work' onclick="check('project[]', 'b1')" />Garage<br />
+                <input type='checkbox' name='project[]' value='Living Room Work' onclick="check('project[]', 'b1')" />Living Room<br />
+                <input type='checkbox' name='project[]' value='Other Work: ' onclick="check('project[]', 'b1')" />Other<br />
 
-        </form>
-        <br />
-        <button type="button" id="b1" onclick="toQest2()" disabled="">
-            Submit
-        </button><br />
-    </div>
+            </form>
+            <br />
+            <button type="button" id="b1" onclick="toQest2()" disabled="">
+                Submit
+            </button><br />
+        </div>
+    </section>
 </body>
 </html>
 
