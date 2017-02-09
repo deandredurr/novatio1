@@ -18,6 +18,7 @@
         var mulG;
         var mulH;
         var input;
+        var userName;
 
         /*
         Radio Button Info Pull Format/ Radio Question:
@@ -303,14 +304,34 @@
             mulG = document.querySelector('input[name="Qmul7"]:checked').value;
             mulH = document.querySelector('input[name="Qmul8"]:checked').value;
             document.getElementById('placement').innerHTML = ("If you have any comments please feel free to add below." +
-                "<input type='text' id='dataIn' value='' />" +
+                "<br><input type='text' id='dataIn' value='' /><br>"+
+                "Name: <input type='text' id='Name' value='' />" +
                 "<button type='button' id='end' onclick='toEnd()'  >Submit</button>");
         }
 
         function toEnd() {
             input = document.getElementById('dataIn');
+            userName = document.getElementById('Name');
             document.getElementById('placement').innerHTML = ("Thank you for your time.");
             //input email all info
+            var link = "S01160644@acad.tri-c.edu"
+             + "&subject=" + escape("This is my subject")
+             + "&body=" + escape(userName + "'s Customer Review: <br>" + work + "<br>" +
+            budget + "<br>" +
+            mulA + "<br>" +
+            mulB + "<br>" +
+            mulC + "<br>" +
+            mulD + "<br>" +
+            mulE + "<br>" +
+            mulF + "<br>" +
+            mulG + "<br>" +
+            mulH + "<br>" +
+            input + "<br>" +
+            userName)
+            ;
+
+            window.location.href = link;
+
         }
 
     </script>
