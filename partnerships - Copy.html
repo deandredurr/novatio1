@@ -34,15 +34,15 @@
 </head>
 <body>
     <br />
-    
-     <div class="container-fluid text-center">
+
+    <div class="container-fluid text-center">
         <div style="background-color:white; color: #009be8;">
-        <h2>Partnerships</h2>
-        <blockquote>
-            <p>It is rare to find a business partner who is selfless. If you are lucky it happens once in a lifetime.</p>
-            <small>Michael Eisner</small>
-        </blockquote>
-    </div>
+            <h2>Partnerships</h2>
+            <blockquote>
+                <p>It is rare to find a business partner who is selfless. If you are lucky it happens once in a lifetime.</p>
+                <small>Michael Eisner</small>
+            </blockquote>
+        </div>
         <br>
         <div class="row">
             <div class="col-sm-2">
@@ -95,7 +95,7 @@
                         <li><a href="ContactUs.html">Contact us</a></li>
                         <li><a href="NovatioGllery.html">Gallery</a></li>
                         <li><a href="partnerships - Copy.html">Partnerships</a></li>
-                        <li><a href="QA.html">Customer Review</a></li>
+                        <li><button onclick="openWin()">Submit Customer Review</button></li>
                     </ul>
                     &copy Novatio 2017
 
@@ -103,5 +103,12 @@
             </div>
         </div>
     </footer>
+    <script>
+        var myWindow;
+        function openWin() {
+            myWindow=window.open("QA.html", "myWindow", "width=max_width,height=max_height");
+                    }
+
+    </script>
 </body>
 </html>

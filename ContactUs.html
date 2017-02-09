@@ -485,7 +485,7 @@
 
                         <li><a href="partnerships - Copy.html">Partnerships</a></li>
 
-                        <li><a href="QA.html">Customer Review</a></li>
+                        <li><button onclick="openWin()">Submit Customer Review</button></li>
 
                     </ul>
 
@@ -498,6 +498,15 @@
         </div>
 
     </footer>
+
+    <script>
+
+        var myWindow;
+        function openWin() {
+            myWindow = window.open("QA.html", "myWindow", "width=max_width,height=max_height");
+        }
+
+    </script>
 
 </body>
 
