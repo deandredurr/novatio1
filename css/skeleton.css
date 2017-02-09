@@ -130,9 +130,9 @@ body {
     -webkit-transition: transform 3s;
 }
 
-/* Temp:body:hover {
-    //transform:rotate(360deg);
-}*/
+body:hover {
+    transform:rotate(360deg);
+}
 
 /*  Was trying to create a Glitter/Glow effect VVVVVVVVV, but no success... :'{ */
 
