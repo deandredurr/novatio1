@@ -149,39 +149,42 @@
             </div>
             <!-------- IN Container . END of Contact1 Section but begining of google map)------------------------------------->
             <div class="col-sm-6">
-                <div id="googleMap" style="height:400px;width:100%;">
-                </div>  <!-- Add Google Maps <!----41.461945, -81.474961-->
-                <script src="https://maps.googleapis.com/maps/api/js"></script>
-                <script>
-                    var myCenter = new google.maps.LatLng(41.461945, -81.474961);
-                    function initialize() {
-                        var mapProp = {
-                            center: myCenter,
-                            zoom: 15,
-                            scrollwheel: false,
-                            draggable: false,
-                            mapTypeId: google.maps.MapTypeId.ROADMAP,
-                        };
 
-                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                
+                    <div id="googleMap" style="height:400px;width:100%;">
+                    </div>  <!-- Add Google Maps <!----41.461945, -81.474961------>
+                    <!-- Add Google Maps <!----AIzaSyD7WyqyOkJFG_l7KG-1mVEVklU4ETYWs5k--->
+                    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7WyqyOkJFG_l7KG-1mVEVklU4ETYWs5k"></script>
+                    <script>
+                        var myCenter = new google.maps.LatLng(41.461945, -81.474961);
+                        function initialize() {
+                            var mapProp = {
+                                center: myCenter,
+                                zoom: 15,
+                                scrollwheel: false,
+                                draggable: false,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                            };
 
-                        var marker = new google.maps.Marker({
-                            position: myCenter,
-                        });
+                            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-                        marker.setMap(map);
-                    }
-                    google.maps.event.addDomListener(window, 'load', initialize);
-                </script>
+                            var marker = new google.maps.Marker({
+                                position: myCenter,
+                            });
 
-            </div>
+                            marker.setMap(map);
+                        }
+                        google.maps.event.addDomListener(window, 'load', initialize);
+                    </script>
+
+</div>
             <!---------End of GoogleMap section---style="height:50%;------------->
             <div class="row">
                 <div class="col-sm-6 slideanim">
                     <div class="row">
                         <div class="col-sm-6 form-group">
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.9525490314986!2d-81.47714928457191!3d41.46194447925741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883102de5603530d%3A0x6fd712a9acff0d4e!2s28790+Chagrin+Blvd%2C+Woodmere%2C+OH+44122!5e0!3m2!1sen!2sus!4v1486589433383" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            
                             <!---- <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>-->
                         </div>
                         <div class="col-sm-6 form-group">
@@ -205,6 +208,8 @@
     <!-------- IN Container . END of Well ,Contact1 Section but begining of google map)------------------------------------->
     </div>
     </div>
+   <!----iframe src="-->
+       <!--https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2989.9525490314986!2d-81.47714928457191!3d41.46194447925741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883102de5603530d%3A0x6fd712a9acff0d4e!2s28790+Chagrin+Blvd%2C+Woodmere%2C+OH+44122!5e0!3m2!1sen!2sus!4v1486589433383" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>-->
 
 </body>
 </html>
