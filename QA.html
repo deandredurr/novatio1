@@ -9,10 +9,15 @@
 
         var work = [];
         var budget;
-        var newText;
         var mulA;
         var mulB;
         var mulC;
+        var mulD;
+        var mulE;
+        var mulF;
+        var mulG;
+        var mulH;
+        var input;
 
         function check(a, x) {
             var ele = document.getElementsByName(a);
@@ -29,10 +34,11 @@
         }
 
 
-        function checkMul(a,b,c, x) {
+        function checkMul(a,b,c,d, x) {
             var eleA = document.getElementsByName(a);
             var eleB = document.getElementsByName(b);
             var eleC = document.getElementsByName(c);
+            var eleD = document.getElementsByName(d);
             var flag = 0;
 
             for (var i = 0; i < eleA.length; i++) {
@@ -47,8 +53,12 @@
                 if (eleC[i].checked)
                     flag++;
             }
+            for (var i = 0; i < eleA.length; i++) {
+                if (eleD[i].checked)
+                    flag++;
+            }
 
-            if (flag == 3)
+            if (flag == 4)
                 document.getElementById(x).disabled = false;
             else
                 document.getElementById(x).disabled = true;
@@ -66,7 +76,7 @@
                     "<label for='FB'>SQB</label>" +
                "</form>" +
                "<button type='button' id='b2' onclick='radioSubmitB()' disabled='' >Submit</button>");
-
+                
         */
 
 
@@ -95,42 +105,114 @@
                "<button type='button' id='b2' onclick='toQest3()' disabled='' >Submit</button>");
                 }
 
+        //style the table
         function toQest3() {
-            // gets all the input tags and their number
             budget = document.querySelector('input[name="Q2"]:checked').value;
-            document.getElementById('placement').innerHTML = ("Please rate your satisfactory." +
+            document.getElementById('placement').innerHTML = ("Please rate your satisfactory on..." +
                 "<table id='radioTable' border='.5'>" +
                     "<tr>" +
                         "<td></td>" +
                         "<td>Dissatisfied</td>" +
 			            "<td>Somewhat dissatisifed</td>" +
-			            "<td>neither Satisfied or Dissatisfied</td>" +
+			            "<td>Neither Satisfied or Dissatisfied</td>" +
 			            "<td>Somewhat Satisfied</td>" +
 			            "<td>Satisfied</td>" +
                     "</tr>" + "<tr>" +
-                        "<td>Question Mul 1</td>" +
-                        "<td><input type='radio' id='QmulA' name='Qmul1' value='Answer A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulB' name='Qmul1' value='Answer B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulC' name='Qmul1' value='Answer C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulD' name='Qmul1' value='Answer D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulX' name='Qmul1' value='Answer X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
+                        "<td>The Value of the Product. </td>" +
+                        "<td><input type='radio' id='QmulA' name='Qmul1' value='Dissatisfied with the Value.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulB' name='Qmul1' value='Somewhat Dissatisifed with the Value.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulC' name='Qmul1' value='Neither Satisfied or Dissatisfied with the Value.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulD' name='Qmul1' value='Somewhat Satisfied with the Value.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39; ,&#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulX' name='Qmul1' value='Satisfied with the Value.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
                     "</tr>" + "<tr>" +
-                    "<td>Question Mul 2</td>" +
-                        "<td><input type='radio' id='Qmul2A' name='Qmul2' value='Answer 2A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2B' name='Qmul2' value='Answer 2B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2C' name='Qmul2' value='Answer 2C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2D' name='Qmul2' value='Answer 2D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2X' name='Qmul2' value='Answer 2X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
+                        "<td>The Time it Took to Complete the Project. </td>" +
+                        "<td><input type='radio' id='Qmul2A' name='Qmul2' value='Dissatisfied with The Time it took.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2B' name='Qmul2' value='Somewhat Dissatisifed with The Time it took.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2C' name='Qmul2' value='Neither Satisfied or Dissatisfied with The Time it took.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2D' name='Qmul2' value='Somewhat Satisfied with The Time it took.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2X' name='Qmul2' value='Satisfied with The Time it took.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
                     "</tr>" + "<tr>" +
-                    "<td>Question Mul 3</td>" +
-                        "<td><input type='radio' id='Qmul3A' name='Qmul3' value='Answer 3A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3B' name='Qmul3' value='Answer 3B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3C' name='Qmul3' value='Answer 3C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3D' name='Qmul3' value='Answer 3D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3X' name='Qmul3' value='Answer 3X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-                    "</tr>" + "</table>" + "<input type='button' onclick='valOfMultTable()' id='xdde' disabled=''/>");
+                    "<td>The Employees That Were Working on the Project. </td>" +
+                        "<td><input type='radio' id='Qmul3A' name='Qmul3' value='Dissatisfied with the Employees.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3B' name='Qmul3' value='Somewhat Dissatisifed with the Employees.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3C' name='Qmul3' value='Neither Satisfied or Dissatisfied with the Employees.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3D' name='Qmul3' value='Somewhat Satisfied with the Employees.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3X' name='Qmul3' value='Satisfied with the Employees.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+                    "</tr>" + "<tr>" +
+                    "<td>Overall Quality of the Finished Product. </td>" +
+                        "<td><input type='radio' id='Qmul4A' name='Qmul4' value='Dissatisfied with the Finished Product.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul4B' name='Qmul4' value='Somewhat Dissatisifed with the Finished Product.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul4C' name='Qmul4' value='Neither Satisfied or Dissatisfied the Finished Product.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul4D' name='Qmul4' value='Somewhat Satisfied with the Finished Product.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul4X' name='Qmul4' value='Satisfied with the Finished Product.' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;Qmul4&#39;, &#39;b3&#39;)'/></td>" +
+                    "</tr>" + "</table>" +
+                    "<button type='button' id='b3' onclick='toQest4()' disabled='' >Submit</button>");
 
         }
+
+        //style the table
+        function toQest4() {
+            // gets all the input tags and their number
+            mulA = document.querySelector('input[name="Qmul1"]:checked').value;
+            mulB = document.querySelector('input[name="Qmul2"]:checked').value;
+            mulC = document.querySelector('input[name="Qmul3"]:checked').value;
+            mulD= document.querySelector('input[name="Qmul4"]:checked').value;
+            document.getElementById('placement').innerHTML = ("Please answer the questions below..." +
+                "<table id='radioTable' border='.5'>" +
+                    "<tr>" +
+                        "<td></td>" +
+                        "<td>Strongly Disagree</td>" +
+			            "<td>Somewhat Disagree</td>" +
+			            "<td>Neither Agree nor Disagree</td>" +
+			            "<td>Somewhat Agree</td>" +
+			            "<td>Strongly Agree</td>" +
+                    "</tr>" + "<tr>" +
+                        "<td>The Novatio Project Manager was knowledgeable and professional. </td>" +
+                        "<td><input type='radio' id='Qmul5A' name='Qmul5' value='Strongly Disagree with The Novatio Project Manager.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul5B' name='Qmul5' value='Somewhat Disagree with The Novatio Project Manager.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul5C' name='Qmul5' value='Neither Agree nor Disagree with The Novatio Project Manager.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul5D' name='Qmul5' value='Somewhat Agree with The Novatio Project Manager.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39; ,&#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul5X' name='Qmul5' value='Strongly Agree with The Novatio Project Manager.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+                    "</tr>" + "<tr>" +
+                        "<td>Novatio was helpful throughout the project. </td>" +
+                        "<td><input type='radio' id='Qmul6A' name='Qmul6' value='Strongly Disagree with Novatio was helpful.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul6B' name='Qmul6' value='Somewhat Disagree with Novatio was helpful.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul6C' name='Qmul6' value='Neither Agree nor Disagree with Novatio was helpful.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul6D' name='Qmul6' value='Somewhat Satisfied with Novatio was helpful.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul6X' name='Qmul6' value='Strongly Agree with Novatio was helpful.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+                    "</tr>" + "<tr>" +
+                    "<td>I would recommend Novatio's services to a friend. </td>" +
+                        "<td><input type='radio' id='Qmul7A' name='Qmul7' value='Strongly Disagree would recommend a friend.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul7B' name='Qmul7' value='Somewhat Disagree would recommend a friend.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul7C' name='Qmul7' value='Neither Agree nor Disagree would recommend a friend.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul7D' name='Qmul7' value='Somewhat Agree would recommend a friend.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul7X' name='Qmul7' value='Strongly Agree would recommend a friend.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+                    "</tr>" + "<tr>" +
+                    "<td>If I need more work done, I would hire Novatio. </td>" +
+                        "<td><input type='radio' id='Qmul8A' name='Qmul8' value='Strongly Disagree would hire Novatio.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul8B' name='Qmul8' value='Somewhat Disagree would hire Novatio.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul8C' name='Qmul8' value='Neither Agree nor Disagree the Finished Product.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul8D' name='Qmul8' value='Somewhat Agree would hire Novatio.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul8X' name='Qmul8' value='Strongly Agree would hire Novatio.' onclick='checkMul(&#39;Qmul5&#39;, &#39;Qmul6&#39;, &#39;Qmul7&#39;, &#39;Qmul8&#39;, &#39;b4&#39;)'/></td>" +
+                    "</tr>" + "</table>" +
+                    "<button type='button' id='b4' onclick='toQest5()' disabled='' >Submit</button>");
+
+        }
+        function toQest5() {
+            mulE = document.querySelector('input[name="Qmul5"]:checked').value;
+            mulF = document.querySelector('input[name="Qmul6"]:checked').value;
+            mulG = document.querySelector('input[name="Qmul7"]:checked').value;
+            mulH = document.querySelector('input[name="Qmul8"]:checked').value;
+            document.getElementById('placement').innerHTML = ("If you have any comments please feel free to add below." +
+                "<input type='text' id='dataIn' value='' />" +
+                "<button type='button' id='end' onclick='toEnd()'  >Submit</button>");
+        }
+
+        function toEnd() {
+            input = document.getElementById('dataIn');
+            //input email all info 
+        }
+
             /*
             document.getElementById('placement').innerHTML = ("Answer chosen: " + rowN + "Select again: <br>" +
                "<form>" +
@@ -191,26 +273,26 @@
 			            "<td>Satisfied</td>" +			
                     "</tr>" + "<tr>" +
                         "<td>Question Mul 1</td>" +
-                        "<td><input type='radio' id='QmulA' name='Qmul1' value='Answer A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulB' name='Qmul1' value='Answer B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulC' name='Qmul1' value='Answer C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulD' name='Qmul1' value='Answer D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='QmulX' name='Qmul1' value='Answer X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
+                        "<td><input type='radio' id='QmulA' name='Qmul1' value='Answer A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulB' name='Qmul1' value='Answer B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulC' name='Qmul1' value='Answer C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulD' name='Qmul1' value='Answer D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='QmulX' name='Qmul1' value='Answer X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
                     "</tr>" + "<tr>" +
                     "<td>Question Mul 2</td>" +
-                        "<td><input type='radio' id='Qmul2A' name='Qmul2' value='Answer 2A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2B' name='Qmul2' value='Answer 2B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2C' name='Qmul2' value='Answer 2C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2D' name='Qmul2' value='Answer 2D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul2X' name='Qmul2' value='Answer 2X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
+                        "<td><input type='radio' id='Qmul2A' name='Qmul2' value='Answer 2A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2B' name='Qmul2' value='Answer 2B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2C' name='Qmul2' value='Answer 2C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2D' name='Qmul2' value='Answer 2D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul2X' name='Qmul2' value='Answer 2X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
                     "</tr>" + "<tr>" +
                     "<td>Question Mul 3</td>" +
-                        "<td><input type='radio' id='Qmul3A' name='Qmul3' value='Answer 3A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3B' name='Qmul3' value='Answer 3B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3C' name='Qmul3' value='Answer 3C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3D' name='Qmul3' value='Answer 3D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-			            "<td><input type='radio' id='Qmul3X' name='Qmul3' value='Answer 3X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;xdde&#39;)'/></td>" +
-                    "</tr>" + "</table>" + "<input type='button' onclick='valOfMultTable()' id='xdde' disabled=''/>");
+                        "<td><input type='radio' id='Qmul3A' name='Qmul3' value='Answer 3A ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3B' name='Qmul3' value='Answer 3B ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3C' name='Qmul3' value='Answer 3C ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3D' name='Qmul3' value='Answer 3D ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+			            "<td><input type='radio' id='Qmul3X' name='Qmul3' value='Answer 3X ' onclick='checkMul(&#39;Qmul1&#39;, &#39;Qmul2&#39;, &#39;Qmul3&#39;, &#39;b3&#39;)'/></td>" +
+                    "</tr>" + "</table>" + "<input type='button' onclick='valOfMultTable()' id='b3' disabled=''/>");
         }
 
         */
