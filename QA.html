@@ -132,6 +132,7 @@
         } 
         */  
 
+        //use to check to see if the user has selected a answer.
         function check(a, x) {
             var ele = document.getElementsByName(a);
             var flag = 0;
@@ -146,7 +147,7 @@
                 document.getElementById(x).disabled = true;
         }
 
-
+        //set to see if more than one result is checked. 
         function checkMul(a,b,c,d, x) {
             var eleA = document.getElementsByName(a);
             var eleB = document.getElementsByName(b);
@@ -336,25 +337,27 @@
     </script>
 </head>
 <body>
-    <h1>NOVATIO</h1>
+    <section class="survey">
+        <h1>NOVATIO</h1>
 
-    <div id="placement">
-        First Question:<br />What renovation project did you choose from Novatio?
-        <br />
-        <form>
-            <input type='checkbox' name='project[]' value='Kitchen Work' onclick="check('project[]', 'b1')" />Kitchen<br />
-            <input type='checkbox' name='project[]' value='Bathroom Work' onclick="check('project[]', 'b1')" />Bathroom<br />
-            <input type='checkbox' name='project[]' value='Bedroom Work' onclick="check('project[]', 'b1')" />Bedroom<br />
-            <input type='checkbox' name='project[]' value='Garage Work' onclick="check('project[]', 'b1')" />Garage<br />
-            <input type='checkbox' name='project[]' value='Living Room Work' onclick="check('project[]', 'b1')" />Living Room<br />
-            <input type='checkbox' name='project[]' value='Other Work: ' onclick="check('project[]', 'b1')" />Other<br />
+        <div id="placement">
+            First Question:<br />What renovation project did you choose from Novatio?
+            <br />
+            <form>
+                <input type='checkbox' name='project[]' value='Kitchen Work' onclick="check('project[]', 'b1')" />Kitchen<br />
+                <input type='checkbox' name='project[]' value='Bathroom Work' onclick="check('project[]', 'b1')" />Bathroom<br />
+                <input type='checkbox' name='project[]' value='Bedroom Work' onclick="check('project[]', 'b1')" />Bedroom<br />
+                <input type='checkbox' name='project[]' value='Garage Work' onclick="check('project[]', 'b1')" />Garage<br />
+                <input type='checkbox' name='project[]' value='Living Room Work' onclick="check('project[]', 'b1')" />Living Room<br />
+                <input type='checkbox' name='project[]' value='Other Work: ' onclick="check('project[]', 'b1')" />Other<br />
 
-        </form>
-        <br />
-        <button type="button" id="b1" onclick="toQest2()" disabled="">
-            Submit
-        </button><br />
-    </div>
+            </form>
+            <br />
+            <button type="button" id="b1" onclick="toQest2()" disabled="">
+                Submit
+            </button><br />
+        </div>
+    </section>
 </body>
 </html>
 
