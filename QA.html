@@ -3,7 +3,10 @@
 <head>
     <title>Table Editing</title>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/skeleton.css" />
     <style>
+
     </style>
     <script language="javascript" type="text/javascript">
 
@@ -195,13 +198,13 @@
                 document.getElementById('placement').innerHTML = ("Question 2<br> Would you please tell us what type of budget you had for this project." +
                "<form>" +
                     "<input type='radio' id='Q2a' name='Q2' value='$1,000-$5,000' onclick='check(&#39;Q2&#39;, &#39;b2&#39;)'/>" +
-                    "<label for='FA'>$1,000-$5,000</label><br> " +
+                    " $1,000-$5,000<br> " +
                     "<input type='radio' id='Q2b' name='Q2' value='$6,000-$8,000' onclick='check(&#39;Q2&#39;, &#39;b2&#39;)'/>" +
-                    "<label for='FB'>$6,000-$8,000</label><br>" +
+                    " $6,000-$8,000<br>" +
                     "<input type='radio' id='Q2c' name='Q2' value='$9,000-$12,000' onclick='check(&#39;Q2&#39;, &#39;b2&#39;)'/>" +
-                    "<label for='FB'>$9,000-$12,000</label><br>" +
-                    "<input type='radio' id='Q2c' name='Q2' value='More then $13000' onclick='check(&#39;Q2&#39;, &#39;b2&#39;)'/>" +
-                    "<label for='FB'>More Then $13,000</label><br>" +
+                    " $9,000-$12,000<br>" +
+                    "<input type='radio' id='Q2d' name='Q2' value='More then $13000' onclick='check(&#39;Q2&#39;, &#39;b2&#39;)'/>" +
+                    " More Then $13,000<br>" +
                "</form>" +
                "<button type='button' id='b2' onclick='toQest3()' disabled='' >Submit</button>");
                 }
@@ -336,11 +339,12 @@
 
     </script>
 </head>
-<body>
+<body style="background-color:#fce9bb">
     <section class="survey">
-        <h1>NOVATIO</h1>
+        <h1 style="font-size:45px; letter-spacing: 5px; ">{NOVATIO}</h1>
+        <h1>Customer Review</h1>
 
-        <div id="placement">
+        <div id="placement" style="background-color: #fff6e0;">
             First Question:<br />What renovation project did you choose from Novatio?
             <br />
             <form>
