@@ -209,6 +209,8 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 </head>
 <body>
     <div class="header">
@@ -677,7 +679,7 @@
                         <li><a href="ContactUs.html">Contact us</a></li>
                         <li><a href="NovatioGllery.html">Gallery</a></li>
                         <li><a href="partnerships - Copy.html">Partnerships</a></li>
-                        <li><a href="QA.html">Customer Review</a></li>
+                        <li><button onclick="openWin()">Submit Customer Review</button></li>
                     </ul>
                     &copy Novatio 2017
 
@@ -685,6 +687,13 @@
             </div>
         </div>
     </footer>
+    <script>
+        var myWindow;
+        function openWin() {
+            myWindow=window.open("QA.html", "myWindow", "width=max_width,height=max_height");
+                    }
+
+    </script>
 
     <script src="jquery/jquery.min.js" type="text/javascript"></script>
     <script src="jquery/bootstrap.min.js" type="text/javascript"></script>
