@@ -1,0 +1,726 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="jquery/jquery.min.js"></script>
+    <script src="jquery/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', arial, sans-serif;
+        }
+
+        .header {
+            position: fixed;
+            width: 100%;
+            background: #222;
+            z-index: 10;
+        }
+
+            .header .navbar-brand {
+                font-weight: 900;
+            }
+
+            .header .navbar {
+                margin: 0;
+                border: none;
+            }
+
+        .page-footer {
+            width: 100%;
+            min-height: 200px;
+            padding: 50px 0;
+            border-bottom: 10px solid #fff;
+            background: #414A52;
+        }
+
+        .page-section {
+            width: 100%;
+            min-height: 800px;
+            padding: 50px 0;
+            border-bottom: 10px solid #fff;
+        }
+
+            .page-section h1 {
+                font-size: 4em;
+                margin: 50px 0;
+            }
+
+                .page-section h1 span {
+                    font-weight: 200;
+                }
+
+            .page-section h2 {
+                font-size: 3em;
+                font-weight: 900;
+                color: #fff;
+                margin: 0 0 30px;
+                text-shadow: 2px 2px 2px #000;
+            }
+
+            .page-section p {
+                font-size: 1.2em;
+                font-weight: 200;
+                margin: 0 25% 20px 0;
+            }
+
+                .page-section p.lead {
+                    font-size: 1.8em;
+                }
+
+                .page-section p.caption {
+                    color: #fff;
+                    padding: 20px;
+                    background: url(images/background/trans_black_50.png);
+                    text-shadow: 1px 1px 1px #000;
+                }
+
+            .page-section.intro {
+                min-height: 50px;
+            }
+
+            .page-section#livingRoom_B {
+                background: url(images/background/livingRoom_B.jpg) bottom center no-repeat;
+            }
+
+            .page-section#Kitchen {
+                background: url(images/background/Kitchen.jpg) bottom center no-repeat;
+            }
+
+            .page-section#Bedroom {
+                background: url(images/background/Bedroom.jpg) top center no-repeat;
+            }
+
+            .page-section#Dining {
+                background: url(images/background/Dining.jpg) top center no-repeat;
+            }
+
+            .page-section#Bathroom {
+                background: url(images/background/Bathroom.jpg) top center no-repeat;
+            }
+
+        .btn {
+            font-weight: 200;
+        }
+
+        .btn-dark {
+            background: #444;
+            color: #fff;
+        }
+
+            .btn-dark:hover {
+                background: #000;
+                color: #fff;
+            }
+
+        .back-to-top {
+            display: inline-block;
+            clear: both;
+            background: #fff;
+            color: #333;
+            padding: 0 10px 5px;
+            margin: 20px 0 0;
+            text-shadow: none;
+        }
+
+            .back-to-top:hover {
+                background: #333;
+                color: #fff;
+                text-decoration: none;
+            }
+
+        hr {
+            border-color: #ddd;
+        }
+
+        .glyphicon {
+            color: red;
+            font-size: 200%;
+        }
+
+        .glyphicon-chevron-left {
+            font-size: 200%;
+        }
+
+        .blink {
+            font-size: 100%;
+            color: red;
+            animation: blink-animation 1s steps(5, start) infinite;
+            -webkit-animation: blink-animation 1s steps(5, start) infinite;
+        }
+
+        @keyframes blink-animation {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        @-webkit-keyframes blink-animation {
+            to {
+                /*visibility: hidden;*/
+            }
+        }
+
+        .modal-dialog {
+            text-align: center;
+        }
+
+        .modal-content {
+            display: inline-block;
+        }
+
+
+        @media (min-width: 768px) {
+            .header .navbar-brand {
+                padding-left: 0;
+            }
+
+            .navbar-nav {
+                float: right;
+            }
+
+            .modal-dialog {
+                width: auto;
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-section h1 {
+                font-size: 3em;
+            }
+
+            .page-section h2 {
+                font-size: 2em;
+            }
+
+            .page-section p {
+                font-size: 1em;
+                margin: 0 0 20px;
+            }
+        }
+    </style>
+
+    <!--Links to skeleton.css and normalized.css-->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top">Gallery</a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#" class="scroll-link" data-id="livingRoom_B">Living Room</a></li>
+                        <li><a href="#" class="scroll-link" data-id="Kitchen">Kitchen</a></li>
+                        <li><a href="#" class="scroll-link" data-id="Bedroom">Bedroom</a></li>
+                        <li><a href="#" class="scroll-link" data-id="Dining">Dining</a></li>
+                        <li><a href="#" class="scroll-link" data-id="Bathroom">Bathroom</a></li>
+
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.header-->
+    <div class="page-section intro">
+        <div class="container">
+            <h1>IDEAS & INSPIRATION </h1>
+            <br \><h4><b>Where Do You Want To Start Your Day ?</b></h4>
+            <br \>
+            <p>
+                We don’t believe in perfect homes. We believe in homes that are a perfect reflection of
+                the people who live inside. Where everything looks the way you want it to, works the way you need it to,
+                and just generally makes you feel good – without costing a fortune. That’s why we’ve filled this section with
+                tons of different home ideas, from home decoration ideas to organizing tips to inspiration for making your
+                home more green. So, you’ll have all you need for creating a space that you love calling home.
+            </p>
+            <p>
+                <a href="#" class="scroll-link btn btn-dark" data-id="livingRoom_B">Living Room</a>
+                <a href="#" class="scroll-link btn btn-dark" data-id="Kitchen">Kitchen</a>
+                <a href="#" class="scroll-link btn btn-dark" data-id="Bedroom">Bedroom</a>
+                <a href="#" class="scroll-link btn btn-dark" data-id="Dining">Dining</a>
+                <a href="#" class="scroll-link btn btn-dark" data-id="Bathroom">Bathroom</a>
+            </p>
+            <hr />
+
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.page-section-->
+    <div id="livingRoom_B" class="page-section">
+        <div class="container">
+            <h2>Living Room</h2>
+            <p class="caption">
+                Your Living room is where u share the story of who you are!! <br />
+                So our Living room ideas helps you to do that....<br />
+                <a href="#" class="scroll-top back-to-top">&uarr;</a>
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-LivingRoom-modal-lg">View Gallery</button>
+            </p>
+
+            <!-- Slides code starts here -->
+
+            <div class="modal fade bs-LivingRoom-modal-lg" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div id="carousel-example-LivingRoom" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/livingroom/livingroom1.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/livingroom/livingroom2.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/livingroom/livingroom3.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/livingroom/livingroom4.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/livingroom/livingroom5.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/livingroom/livingroom6.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-LivingRoom" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&#8678;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-LivingRoom" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&#8680;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides code Ends here -->
+
+
+
+
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/#livingRoom_B-->
+    <div id="Kitchen" class="page-section">
+        <div class="container">
+            <h2>Kitchen</h2>
+            <p class="caption">
+                Find your DREAM kitchen here...<br />
+                Our kitchens are designed to be simple enough to put together at home<br />
+                But if you'd want some help, we are with YOU every step of the way... <br />
+                <a href="#" class="scroll-top back-to-top">&uarr;</a>
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-kitchen-modal-lg">View Gallery</button>
+            </p>
+
+
+            <!-- Slides code starts here -->
+
+            <div class="modal fade bs-kitchen-modal-lg" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div id="carousel-example-kitchen" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/kitchen/kitchen1.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/kitchen/kitchen2.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/kitchen/kitchen3.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/kitchen/kitchen4.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/kitchen/kitchen5.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        5
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/kitchen/kitchen6.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        6
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-kitchen" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&#8678;</span>
+
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-kitchen" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&#8680;</span>
+
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides code Ends here -->
+
+
+
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/#Kitchen-->
+    <div id="Bedroom" class="page-section">
+        <div class="container">
+            <h2>Bedroom</h2>
+
+            <p class="caption">
+                A Good Night's Sleep In A Comfy Bed !!<br />
+                With warm lighting to set the mood & soft textiles to snuggle up in.<br />
+                It's what sweet dreams made of...
+                <br /><a href="#" class="scroll-top back-to-top">&uarr;</a>
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-Bedroom-modal-lg">View Gallery</button>
+            </p>
+
+
+            <!-- Slides code starts here -->
+
+            <div class="modal fade bs-Bedroom-modal-lg" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div id="carousel-example-Bedroom" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/bedroom/bed1.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/bedroom/bed2.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/bedroom/bed3.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/bedroom/bed4.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/bedroom/bed5.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        5
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/bedroom/bed6.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        6
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-Bedroom" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&#8678;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-Bedroom" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&#8680;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides code Ends here -->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/#Bedroom-->
+    <div id="Dining" class="page-section">
+        <div class="container">
+            <h2>Dining</h2>
+            <p class="caption">
+                Find a Dining space in your taste..
+                Getting them to the table is easy.<br />
+                So our designs help you with the hard part-Keeping Them There..<br />
+                <a href="#" class="scroll-top back-to-top">&uarr;</a>
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-Dining-modal-lg">View Gallery</button>
+            </p>
+
+
+            <!-- Slides code starts here -->
+
+            <div class="modal fade bs-Dining-modal-lg" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div id="carousel-example-Dining" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/dining/dining1.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/dining/dining2.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/dining/dining3.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/dining/dining4.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        4
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/dining/dining5.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        5
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/dining/dining6.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        6
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-Dining" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&#8678;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-Dining" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&#8680;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides code Ends here -->
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/#Dining-->
+    <div id="Bathroom" class="page-section">
+        <div class="container">
+            <h2>Bathroom</h2>
+            <p class="caption">
+                Everyone Can Afford To Make A Fresh Start..
+                <br />
+                <a href="#" class="scroll-top back-to-top">&uarr;</a>
+                <button class="btn btn-default" data-toggle="modal" data-target=".bs-Bathroom-modal-lg">View Gallery</button>
+            </p>
+
+
+            <!-- Slides code starts here -->
+
+            <div class="modal fade bs-Bathroom-modal-lg" tabindex="-1" role="dialog"
+                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div id="carousel-example-Bathroom" class="carousel slide" data-ride="carousel">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="images/Bathroom/Bathroom3.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        1
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/Bathroom/Bathroom1.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        2
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/Bathroom/Bathroom2.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/Bathroom/Bathroom4.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/Bathroom/Bathroom5.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="img-responsive" src="images/Bathroom/Bathroom6.jpg" alt="...">
+                                    <div class="carousel-caption">
+                                        3
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-example-Bathroom" role="button" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true">&#8678;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-Bathroom" role="button" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true">&#8680;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Slides code Ends here -->
+
+
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/#Bathroom-->
+
+    <footer>
+        <div class="container">
+            <div class="eight columns">
+                <nav>
+                    <ul>
+                        <li><a href="aboutuspage.html">About us</a></li>
+                        <li><a href="ContactUs.html">Contact us</a></li>
+                        <li><a href="NovatioGllery.html">Gallery</a></li>
+                        <li><a href="vendorpage.html/partnerships.html">Partnerships</a></li>
+                    </ul>
+                    &copy Novatio 2017
+
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="jquery/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        // navigation click actions
+        $('.scroll-link').on('click', function (event) {
+            event.preventDefault();
+            var sectionID = $(this).attr("data-id");
+            scrollToID('#' + sectionID, 750);
+        });
+        // scroll to top action
+        $('.scroll-top').on('click', function (event) {
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+        });
+        // mobile nav toggle
+        $('#nav-toggle').on('click', function (event) {
+            event.preventDefault();
+            $('#main-nav').toggleClass("open");
+        });
+    });
+    // scroll function
+    function scrollToID(id, speed) {
+        var offSet = 50;
+        var targetOffset = $(id).offset().top - offSet;
+        var mainNav = $('#main-nav');
+        $('html,body').animate({ scrollTop: targetOffset }, speed);
+        if (mainNav.hasClass("open")) {
+            mainNav.css("height", "1px").removeClass("in").addClass("collapse");
+            mainNav.removeClass("open");
+        }
+    }
+    if (typeof console === "undefined") {
+        console = {
+            log: function () { }
+        };
+    }
+    </script>
+</body>
+</html>

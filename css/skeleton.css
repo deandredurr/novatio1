@@ -125,7 +125,39 @@ body {
   line-height: 1.6;
   font-weight: 400;
   font-family: "Lato", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  color: #222;
+ /* Was trying to get a rotating effect, but created unstable web interaction...
+      transition: transform 3s;
+    -webkit-transition: transform 3s; */
+}
+
+/* Was trying to get a rotating effect, but created unstable web interaction...
+    
+    body:hover {
+    transform:rotate(360deg); */
+}
+
+/*  Was trying to create a Glitter/Glow effect VVVVVVVVV, but no success... :'{ */
+
+
+.text-glow {
+   font-size:1.2em;
+   color: midnightblue;
+   font-family:Arial;
+   }
+
+.text-glow:hover {
+text-shadow: 1px 0px 8px #ffd200;
+-webkit-transition: 1s linear 4s;
+-moz-transition: 1s linear 4s;
+-o-transition: 1s linear 4s;
+transition: 1s linear 4s;
+outline: 0 none;
+   }
+
+/*  Was trying to create a Glitter/Glow effect ^^^^^^^^^, but no success... :'{ */
+
+
 header nav {
   text-align: right;
   margin-top: 2em;
@@ -217,7 +249,7 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
-  padding: 0 30px;
+  padding: 0px 30px;
   color: #fff;
   text-align: center;
   font-size: 1em;
@@ -479,7 +511,7 @@ there.
 
   .logo {
 
-    margin-top: 1em;
+    margin-top: -50px;
   }
 
   /* benefits
@@ -516,8 +548,8 @@ img {
   text-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 .pricing p {
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  color: #e0b5b5;
+  text-shadow: 0 1px 2px rgba(161, 139, 139, 0.37);
   font-size: 1.2em;
 }
 .pricebox {
@@ -587,7 +619,7 @@ img {
   text-align: left;
 }
 .pricebox section ul li {
-  font-size: 1.2em;
+  font-size: 0.9em;
   margin-bottom: 1.2em;
 }
 
