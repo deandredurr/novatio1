@@ -306,7 +306,7 @@
             document.getElementById('placement').innerHTML = ("If you have any comments please feel free to add below." +
                 "<br><input type='text' id='dataIn' value='' /><br>"+
                 "Name: <input type='text' id='Name' value='' /><br><br>" +
-                "<button type='button' id='end' onclick='toEnd()'  >Submit</button>");
+                "<button type='button' id='end' onclick='toEnd(); return false'>Submit</button>");
         }
 
         function toEnd() {
@@ -335,10 +335,10 @@
 
     </script>
 </head>
-<body style="background-color:aquamarine">
+<body>
     <h1>NOVATIO</h1>
 
-    <div id="placement" style="background-color:azure">
+    <div id="placement">
         First Question:<br />What renovation project did you choose from Novatio?
         <br />
         <form>
